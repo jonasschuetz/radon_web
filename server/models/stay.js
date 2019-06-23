@@ -16,7 +16,7 @@ class Stays {
         this.dose = dose;
     }
 
-    //TODO: Sicherstellen, dass hier wieder ein int zurückgegeben wird. Update Request muss auch ausgeführt werden. 
+    //FIXME: Sicherstellen, dass hier wieder ein int zurückgegeben wird. Update Request muss auch ausgeführt werden. 
     static updateDoseAfterChange() {
         return this.startDate - this.endDate * dose;
     }
@@ -31,6 +31,8 @@ class Stays {
 
             resp.on('end', () => {
                 console.log(JSON.parse(data));
+
+                //FIXME: Anschauen ob dies nötig ist. 
                 for (var d in data) {
                     new Stays(d.id, d.startTime, d.endTime, d.dose);
                 };

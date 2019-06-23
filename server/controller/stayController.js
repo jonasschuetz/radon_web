@@ -6,8 +6,6 @@ var router = express.Router;
 
 router.get('/stays', function(req, res) {
     retriveAll();
-    res()
-
 });
 
 
