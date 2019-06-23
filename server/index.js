@@ -1,0 +1,41 @@
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const http = require('http');
+
+
+const ENV = process.env.NODE_ENV;
+const PORT = 8080;
+
+const dbURL = 'http://86.119.40.8:8008/stays';
+
+const app = express();
+app.use(express.json);
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}!`);
+});
+
+module.exports = app;
+
+function retriveAll() {
+    http.get(dbURL, (resp) => {
+        let data = '';
+
+        resp.on('data', (chunk) => {
+            data += chunk;
+        });
+
+        resp.on('end', () => {
+            console.log(JSON.parse(data));
+            console.log("success");
+        });
+
+
+    }).on("error", (err) => {
+        console.log("Error " + err);
+    });
+}
+retriveAll();
