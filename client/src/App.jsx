@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import http from 'http';
+
+
+
 
 import {
     Container, 
@@ -14,9 +18,11 @@ import {
 import stayCard from "../src/stay.jsx";
 import { throws } from 'assert';
 
-const stayURL = 'http://86.119.40.8:8008/stays';
+var dbURL = 'http://86.119.40.8:8008/stays';
 
 class App extends Component {
+
+   
 
     constructor(props){
         super(props);
@@ -28,22 +34,25 @@ class App extends Component {
         };
     }
     
-    getStayList() {
-       fetch(stayURL)
-       .then(response => response.json())
-        .then(data => {
-            this.setState({
-                stayList: data,
-                isLoading: true,
-            })
-        });       
+    getStayList = () => {
+       fetch('controller/stayController')
+       .then(response => {
+           if(response.status === 200) return console.log('success');
+           else return {error: 'there was an error with connecting with the server'}
+    //    }).then(data => {
+    //            this.setState({
+    //                stayList: data,
+    //            })
+    //     })
+    });
+};    
  
-    };
         // fetch(stayURL)
         // .then(res => res.json())
         // .then(res =>  {
-        //     var stayList = res.map(s => s.dose);
-        //     this.setState({stayList})
+        //    this.setState({
+        //       stayList: data,
+        // })
         // });
    
 
@@ -66,7 +75,7 @@ class App extends Component {
                     <Col>
                      <ul>
                          {this.state.stayList.map(stay =>
-                            <li key = {stay.id}>{stay.dose} {stay.startTime}></li>
+                            <li key = {stay.id}> {stay.id} {stay.dose} {stay.startTime}></li>
                             )}
                         </ul>
                     </Col>

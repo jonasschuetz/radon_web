@@ -1,13 +1,14 @@
-const express = require('express');
+var express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
+var stays = require('../models/stay');
 
-var router = express.Router;
+var router = express.Router();
 
-router.get('/stays', function(req, res) {
-    retriveAll();
+router.get('/', (req, res) => {
+
+    var allStays = stays.getStayList();
+    return res.json(allStays);
 });
 
-
-
-module.exports = retriveAll;
+module.exports = router;

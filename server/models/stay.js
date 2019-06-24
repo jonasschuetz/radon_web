@@ -1,11 +1,14 @@
 const http = require('http');
 const express = require('express');
+const request = require('request-promise');
+
 
 const dbURL = 'http://86.119.40.8:8008/stays';
 
 
 //Formula to calculate the dose. 
 const formula = 11;
+const MAX_Value = 10;
 
 class Stays {
 
@@ -14,6 +17,11 @@ class Stays {
         this.startDate = startDate;
         this.endDate = endDate;
         this.dose = dose;
+        this.percentage = calculatePercentage(dose);
+    }
+
+    static calculatePercentage(dose) {
+        return dose / MAX_Value;
     }
 
     //FIXME: Sicherstellen, dass hier wieder ein int zurückgegeben wird. Update Request muss auch ausgeführt werden. 
@@ -21,8 +29,20 @@ class Stays {
         return this.startDate - this.endDate * dose;
     }
 
+    static getAll() {
+        Stays.allInstances = [];
+        Stays.allInstances.push(this);
+
+        return JSON.stringify(allInstances);
+    }
+
+    static createAll() {
+
+    }
+
     retriveAll() {
-        http.get(dbURL, (resp) => {
+
+        http.get('http://86.119.40.8:8008/stays', (resp) => {
             let data = '';
 
             resp.on('data', (chunk) => {
@@ -30,12 +50,8 @@ class Stays {
             });
 
             resp.on('end', () => {
-                console.log(JSON.parse(data));
-
                 //FIXME: Anschauen ob dies nötig ist. 
-                for (var d in data) {
-                    new Stays(d.id, d.startTime, d.endTime, d.dose);
-                };
+                return data;
             });
 
         }).on("error", (err) => {
