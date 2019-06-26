@@ -1,24 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var Stay = sequelize.define('Stay', {
+    var Room = sequelize.define('Room', {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
             primaryKey: true
         },
-        startTime: {
-            type: DataTypes.DATE,
+        name: {
+            type: DataTypes.STRING,
             allowNull: false
         },
-        endTime: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        dose: {
+        averageValue: {
             type: DataTypes.INTEGER,
             allowNull: false
-        }
+        },
     }, { timestamps: false });
-    return Stay;
+    Room.associate = function(models) {
+        models.Room.hasMany(models.Stay);
+    };
+    return Room;
 }

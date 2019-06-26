@@ -1,10 +1,10 @@
 {
     "name": "radon_web",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
     "scripts": {
-        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "start": "node server/bin/www",
+        "startdev": "nodemon --watch node server/bin/www",
+        "dev": "concurrently \"npm run startdev\" \"npm run client\"",
         "client": "npm start --prefix client",
         "server": "nodemon server"
     },
@@ -29,6 +29,9 @@
         "body-parser": "^1.19.0",
         "cookie-parser": "^1.4.4",
         "express": "^4.17.1",
-        "request-promise": "^4.2.4"
+        "pg": "^7.11.0",
+        "pg-hstore": "^2.3.3",
+        "request-promise": "^4.2.4",
+        "sequelize": "^5.8.12"
     }
 }

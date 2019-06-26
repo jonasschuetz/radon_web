@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "dart_app",
+        "password": "RADON2019",
+        "database": "radon_base",
+        "host": "86.119.40.8",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "dart_app",
+        "password": "RADON2019",
+        "database": "radon_base",
+        "host": "86.119.40.8",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "dart_app",
+        "password": "RADON2019",
+        "database": "radon_base",
+        "host": "86.119.40.8",
+        "dialect": "postgres"
+    }
+}

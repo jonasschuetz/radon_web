@@ -35,16 +35,7 @@ class App extends Component {
     }
     
     getStayList = () => {
-       fetch('controller/stayController')
-       .then(response => {
-           if(response.status === 200) return console.log('success');
-           else return {error: 'there was an error with connecting with the server'}
-    //    }).then(data => {
-    //            this.setState({
-    //                stayList: data,
-    //            })
-    //     })
-    });
+
 };    
  
         // fetch(stayURL)
