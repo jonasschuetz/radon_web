@@ -1,6 +1,13 @@
 'use strict';
+const Sequelize = require('sequelize');
+const room = require('../models/room');
+
 module.exports = (sequelize, DataTypes) => {
-    var Stay = sequelize.define('Stay', {
+    const Model = Sequelize.Model;
+
+    class stay extends Model {};
+
+    stay.init({
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -16,9 +23,16 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         dose: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false
         }
-    }, { timestamps: false });
-    return Stay;
+    }, {
+        timestamps: false,
+        modelName: 'stay',
+        sequelize
+    });
+
+    //stay.belongsTo(room);
+
+    return stay;
 }

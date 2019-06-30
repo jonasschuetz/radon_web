@@ -1,9 +1,19 @@
-var models = require('../models');
+var models = require('../models/index');
 var express = require('express');
 var router = express.Router();
 
+router.use(express.json());
+
 router.get('/stay', function(req, res) {
-    models.Stay.findAll().then((result) => res.json(result))
+    models.stay.findAll().then((result) => res.json(result))
 });
 
+router.post('/stay/create', function(req, res) {
+    console.log(req.body);
+    models.stay.create({
+        dose: req.body.dose,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime
+    }).then((result) => res.json(result))
+})
 module.exports = router;

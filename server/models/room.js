@@ -1,6 +1,13 @@
 'use strict';
+const Sequelize = require('sequelize');
+const stay = require('../models/stay');
+
 module.exports = (sequelize, DataTypes) => {
-    var Room = sequelize.define('Room', {
+    const Model = Sequelize.Model;
+
+    class room extends Model {}
+
+    room.init({
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -15,9 +22,18 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-    }, { timestamps: false });
-    Room.associate = function(models) {
-        models.Room.hasMany(models.Stay);
-    };
-    return Room;
+    }, {
+        timestamps: false,
+        modelName: 'room',
+        sequelize
+    });
+
+    room.create({
+        name: "Dummy Room",
+        averageValue: 1001
+    })
+
+    //room.hasMany(Sequelize.stay);
+
+    return room;
 }
