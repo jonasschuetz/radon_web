@@ -4,11 +4,11 @@ var router = express.Router();
 
 router.use(express.json());
 
-router.get('/stay', function(req, res) {
+router.get('/', function(req, res) {
     models.stay.findAll().then((result) => res.json(result))
 });
 
-router.post('/stay/create', function(req, res) {
+router.post('/create', function(req, res) {
     console.log(req.body);
     models.stay.create({
         dose: req.body.dose,
