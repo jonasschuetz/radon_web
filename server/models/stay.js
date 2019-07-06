@@ -3,11 +3,7 @@ const Sequelize = require('sequelize');
 const room = require('../models/room');
 
 module.exports = (sequelize, DataTypes) => {
-    const Model = Sequelize.Model;
-
-    class stay extends Model {};
-
-    stay.init({
+    var stay = sequelize.define('stay', {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -23,16 +19,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         dose: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.DOUBLE,
             allowNull: false
         }
-    }, {
-        timestamps: false,
-        modelName: 'stay',
-        sequelize
     });
-
-    //stay.belongsTo(room);
 
     return stay;
 }
