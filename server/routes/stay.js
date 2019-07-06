@@ -13,7 +13,8 @@ router.post('/create', function(req, res) {
     models.stay.create({
         dose: req.body.dose,
         startTime: req.body.startTime,
-        endTime: req.body.endTime
+        endTime: req.body.endTime,
+        roomId: req.body.roomId
     }).then((result) => res.json(result))
 })
 module.exports = router;

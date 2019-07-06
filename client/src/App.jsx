@@ -18,8 +18,6 @@ import {
 import stayCard from "../src/stay.jsx";
 import { throws } from 'assert';
 
-var dbURL = 'http://86.119.40.8:8008/stays';
-
 class App extends Component {
 
    
@@ -30,21 +28,19 @@ class App extends Component {
         this.state = {
             dose: null,
             stayList: [],
+            roomList: [],
             newDose: ''
         };
     }
     
     getStayList = () => {
-
+        fetch('https://cors-anywhere.herokuapp.com/http://86.119.40.8:8008/room/1')
+        .then(res => res.json())
+        .then(roomList => {
+            this.setState({roomList});
+        })
 };    
  
-        // fetch(stayURL)
-        // .then(res => res.json())
-        // .then(res =>  {
-        //    this.setState({
-        //       stayList: data,
-        // })
-        // });
    
 
     //Lifecycle Method, fetched Data und initialisiert Statevariable. 
@@ -65,8 +61,8 @@ class App extends Component {
                 <Row>
                     <Col>
                      <ul>
-                         {this.state.stayList.map(stay =>
-                            <li key = {stay.id}> {stay.id} {stay.dose} {stay.startTime}></li>
+                         {this.state.roomList.map(room =>
+                            <li key = {room.id}> {room.id} {room.name}></li>
                             )}
                         </ul>
                     </Col>
