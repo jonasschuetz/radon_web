@@ -5,7 +5,7 @@ var debug = require('debug')('server:server')('http');
 var http = require('http');
 var models = require("../models/index");
 
-var port = 8080;
+var port = 8008;
 app.set('port', port);
 
 var server = http.createServer(app);
