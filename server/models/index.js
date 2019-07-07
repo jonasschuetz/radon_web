@@ -10,7 +10,7 @@ const db = {};
 
 let sequelize;
 if (process.env.HEROKU_POSTGRESQL_ONYX_URL) {
-    sequelize = new Sequelize(process.env[HEROKU_POSTGRESQL_ONYX_URL], {
+    sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_ONYX_URL, {
         dialect: "postgres",
         ssl: true,
         logging: false
