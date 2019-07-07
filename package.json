@@ -32,6 +32,11 @@
         "pg": "^7.11.0",
         "pg-hstore": "^2.3.3",
         "request-promise": "^4.2.4",
-        "sequelize": "^5.8.12"
+        "debug": "~2.6.9",
+        "http-errors": "~1.6.3",
+        "jade": "~1.11.0",
+        "morgan": "~1.9.1",
+        "sequelize": "^5.8.12",
+        "sequelize-cli": "^5.5.0"
     }
 }
