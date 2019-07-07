@@ -34,7 +34,7 @@ class App extends Component {
     }
     
     getStayList = () => {
-        fetch('https://cors-anywhere.herokuapp.com/http://86.119.40.8:8008/room/1')
+        fetch('/stay')
         .then(res => res.json())
         .then(roomList => {
             this.setState({roomList});
@@ -61,8 +61,8 @@ class App extends Component {
                 <Row>
                     <Col>
                      <ul>
-                         {this.state.roomList.map(room =>
-                            <li key = {room.id}> {room.id} {room.name}></li>
+                         {this.state.roomList.map(stay =>
+                            <li key = {stay.id}> {stay.id} {stay.dose}</li>
                             )}
                         </ul>
                     </Col>
