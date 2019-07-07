@@ -9,10 +9,15 @@ const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
-    sequelize = new Sequelize(process.env[config.use_env_variable], config);
+if (process.env.HEROKU_POSTGRESQL_ONYX_URL) {
+    sequelize = new Sequelize(process.env[HEROKU_POSTGRESQL_ONYX_URL], {
+        dialect: "postgres",
+        ssl: true,
+        logging: false
+    });
+
 } else {
-    sequelize = new Sequelize(config.database, config.username, config.password, config);
+    sequelize = new Sequelize("postgres://jonasschutz:radon2019@localhost:5432/radon_dev");
 }
 
 fs
