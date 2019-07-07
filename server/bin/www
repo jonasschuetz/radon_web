@@ -11,9 +11,13 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-models.sequelize.sync({ force: true }).then(
+models.sequelize.sync({ force: true });
+
+setTimeout(function() {
     models.room.create({ name: 'dummy room', averageValue: 1000 })
-);
+}, 2000);
+
+
 
 var listener = app.listen(port, function() {
     console.log('Listening on port ' + listener.address().port);
