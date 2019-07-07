@@ -1,23 +1,26 @@
 {
     "development": {
-        "username": "dart_app",
-        "password": "RADON2019",
-        "database": "radon_base",
-        "host": "86.119.40.8",
+        "use_env_variable": "DATABASE_URL",
+        "username": "gndftrjlewvhzw",
+        "password": "ce1ec2d42cae58039e225011e93ec551d781fadee25e960d5fe8c8d666fc6a5c",
+        "database": "d1gega8lertdvm",
+        "host": "ec2-54-246-84-100.eu-west-1.compute.amazonaws.com",
         "dialect": "postgres"
     },
     "test": {
-        "username": "dart_app",
-        "password": "RADON2019",
-        "database": "radon_base",
-        "host": "86.119.40.8",
+        "use_env_variable": "DATABASE_URL",
+        "username": "gndftrjlewvhzw",
+        "password": "ce1ec2d42cae58039e225011e93ec551d781fadee25e960d5fe8c8d666fc6a5c",
+        "database": "d1gega8lertdvm",
+        "host": "ec2-54-246-84-100.eu-west-1.compute.amazonaws.com",
         "dialect": "postgres"
     },
     "production": {
-        "username": "dart_app",
-        "password": "RADON2019",
-        "database": "radon_base",
-        "host": "86.119.40.8",
+        "use_env_variable": "DATABASE_URL",
+        "username": "gndftrjlewvhzw",
+        "password": "ce1ec2d42cae58039e225011e93ec551d781fadee25e960d5fe8c8d666fc6a5c",
+        "database": "d1gega8lertdvm",
+        "host": "ec2-54-246-84-100.eu-west-1.compute.amazonaws.com",
         "dialect": "postgres"
     }
 }

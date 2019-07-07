@@ -6,7 +6,7 @@ var http = require('http');
 var models = require("../models/index");
 var room = require("../models/room");
 
-var port = 8008;
+const port = process.env.PORT || 3000;
 app.set('port', port);
 
 var server = http.createServer(app);
