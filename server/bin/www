@@ -11,7 +11,7 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-models.sequelize.sync({ force: false }).then(
+models.sequelize.sync({ force: true }).then(
     models.room.create({ name: 'dummy room', averageValue: 1000 })
 );
 
