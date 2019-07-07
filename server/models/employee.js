@@ -1,33 +1,29 @@
 'use strict';
-const Sequelize = require('sequelize');
-const room = require('../models/room');
-
 module.exports = (sequelize, DataTypes) => {
-    var stay = sequelize.define('stay', {
+    var employee = sequelize.define('employee', {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
             primaryKey: true
         },
-        startTime: {
-            type: DataTypes.DATE,
+        firstName: {
+            type: DataTypes.STRING,
             allowNull: false
         },
-        endTime: {
-            type: DataTypes.DATE,
+        lastName: {
+            type: DataTypes.STRING,
             allowNull: false
         },
-        dose: {
+        dosis: {
             type: DataTypes.DOUBLE,
             allowNull: false
         }
     });
 
-    stay.associate = function(models) {
-        models.stay.belongsTo(models.employee);
+    employee.associate = function(models) {
+        models.employee.hasMany(models.stay);
     };
 
-
-    return stay;
+    return employee;
 }
