@@ -1,73 +1,31 @@
 import React, { Component } from 'react';
+import{ Route, Switch } from "react-router-dom";
 import './App.css';
-import axios from 'axios';
-import http from 'http';
-
-
-
-
-import {
-    Container, 
-    Navbar,
-    NavbarBrand, 
-    Row, 
-    Col, 
-    Input
-} from 'reactstrap';
-
-import stayCard from "../src/stay.jsx";
-import { throws } from 'assert';
+import Home from './pages/Home';
+import Employee from './pages/Employee';
+import Reports from './pages/Reports';
+import Anlagen from './pages/Anlagen';
 
 class App extends Component {
 
    
 
-    constructor(props){
-        super(props);
-
-        this.state = {
-            dose: null,
-            stayList: [],
-            roomList: [],
-            newDose: ''
-        };
-    }
-    
-    getStayList = () => {
-        fetch('/stay')
-        .then(res => res.json())
-        .then(roomList => {
-            this.setState({roomList});
-        })
-};    
- 
-   
-
-    //Lifecycle Method, fetched Data und initialisiert Statevariable. 
-    componentDidMount () {
-       this.getStayList();
-    }
-
-    handleInputChange = (e) => {
-        this.setState({newDose: e.value});
-    };
-
     render() {
-        return (
-            <Container fluid className="centered">
-                <Navbar color ="dark">
-                    <NavbarBrand href = "/">Aufenthalte</NavbarBrand>
-                </Navbar>
-                <Row>
-                    <Col>
-                     <ul>
-                         {this.state.roomList.map(stay =>
-                            <li key = {stay.id}> {stay.id} {stay.dose}</li>
-                            )}
-                        </ul>
-                    </Col>
-                </Row>
-            </Container>
+        const App = () => (
+            <div>
+                <Switch>
+                    <Route exact path ='/' component={Home}/>
+                    <Route path='/reports' component={Reports}/>
+                    <Route path='/anlagen' component={Anlagen}/>
+                    {/* TODO: Durchgehend umbenennen auf mitarbeiter in URL*/}
+                    <Route path ='/employee' component={Employee}/>
+                </Switch>
+            </div>
+        )
+        return(
+            <Switch>
+                <App/>
+            </Switch>
         );
 
     }
