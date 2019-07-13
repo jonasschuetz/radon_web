@@ -3,10 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "start": "node server/bin/www",
-        "startdev": "nodemon --watch node server/bin/www",
-        "dev": "concurrently \"npm run startdev\" \"npm run client\"",
-        "client": "npm start --prefix client",
-        "server": "nodemon server"
+        "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
     },
     "repository": {
         "type": "git",
