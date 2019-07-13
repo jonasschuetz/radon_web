@@ -25,7 +25,7 @@ app.use('/api/employee', empRouter);
 
 +
 app.get('/*', function(req, res) {
-    res.sendFile(path.join('client/build', 'index.html', { root: __dirname }));
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 
