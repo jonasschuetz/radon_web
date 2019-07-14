@@ -2,6 +2,14 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
+
 
 
 class Home extends Component {
@@ -31,25 +39,40 @@ class Home extends Component {
 
     render(){
         return (
-            <div className="App">
+            <div >
                 <Navbar/>
+                <Container>
                 <h1>Mitarbeiter</h1>
+            
                 <div>
                     <ul>
                         {this.state.emps.map(function(emp, index){
                             return(
-                                <div key={index}>
-                                    <Link to = {'./employee'}>
-                                        <button variant = "raised">
-                                            Mitarbeiter {index}
-                                        </button>
-                                    </Link>
-                                </div>
+                                <Row>
+                                    <Col>
+                                    <div key={index}>
+                                   
+                                   <Link to = {'./employee'}>
+                                   <div className = "KleineRadonCard">
+                                       <p className="EmpVornamen">{emp.firstName}</p> 
+                                       <p className="EmpVornamen">{emp.lastName}</p>
+                                   </div>
+                                   </Link>
+                                   </div>
+                                   </Col>
+
+
+                                </Row>
+                             
+                                  
+                                
                             )
                         }
                         )}
                     </ul>
                 </div>
+                </Container>
+                                
             </div>
         );
     }

@@ -1,33 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
+}
+
+.KleineRadonCard {
+    width: 342px;
+    height: 331px;
+    border-radius: 15px;
+    border: solid 0.5px #85898a;
+    background-color: #fdfdfd;
+}
+
+.FlacheRadonCard {
+    align-self: right;
+    width: 692px;
+    height: 152px;
+    border-radius: 15px;
+    border: solid 0.5px #85898a;
+    background-color: #fdfdfd;
+}
+
+.EmpVorname {
+    width: 306px;
+    height: 28px;
+    font-family: 'Roboto';
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0a1215;
+}
+
+.StayAnlagenamen {
+    width: 663px;
+    height: 38px;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0a1215;
+}
+
+.NavBarBackground {
+    box-shadow: 0 3px 6px 0 rgba(10, 18, 21, 0.17), 0 0 6px 0 rgba(10, 18, 21, 0.17);
+    background-color: #fdfdfd;
+}
+
+.RadonText {
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0a1215;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

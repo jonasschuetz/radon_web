@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 
 class Navbar extends Component {
     render() {
        return(
             <div>
-             <nav className="navbar navbar-expand-lg navbar-light bg-light">
+             <nav className="navbar navbar-expand-lg NavBarBackground">
                     <ul className="navbar-nav mr-auto">
                         <li><Link to={'/'} className="nav-link">Mitarbeiter</Link></li>
                         <li><Link to={'/profil'} className="nav-link">Profil</Link></li>

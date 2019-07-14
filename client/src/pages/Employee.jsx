@@ -4,12 +4,14 @@ import Navbar from '../components/Navbar';
 
 
 class Employee extends Component {
+
     constructor(props){
         super(props);
         this.state = {
             'stays': []
         }
     }
+
 
     componentDidMount(){
         this.getList();
@@ -29,12 +31,15 @@ class Employee extends Component {
                 <ul>
                     {this.state.stays.map(function(stay, index) {
                         return(
+                            <div className="FlacheRadonCard">
                             <div key={index+1}>
-                                <h1>Aufenthalt {index}</h1>
-                                <p>{stay.startTime}</p>
-                                <p>{stay.endTime}</p>
-                                <p>{stay.dose}</p>
+                                <p className="StayAnlagenamen">Aufenthalt {index}</p>
+                                <p className="RadonText">{stay.startTime}</p>
+                                <p className="RadonText">{stay.endTime}</p>
+                                <p className="RadonText">{stay.dose}</p>
                             </div>  
+                            </div>
+                           
                         ) 
                     }
                     )}

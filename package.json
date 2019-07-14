@@ -24,17 +24,18 @@
     },
     "dependencies": {
         "body-parser": "^1.19.0",
+        "bootstrap": "^4.3.1",
+        "concurrently": "^4.1.1",
         "cookie-parser": "^1.4.4",
-        "express": "^4.17.1",
-        "pg": "^7.11.0",
-        "pg-hstore": "^2.3.3",
-        "request-promise": "^4.2.4",
         "debug": "~2.6.9",
+        "express": "^4.17.1",
         "http-errors": "~1.6.3",
         "jade": "~1.11.0",
         "morgan": "~1.9.1",
+        "pg": "^7.11.0",
+        "pg-hstore": "^2.3.3",
+        "request-promise": "^4.2.4",
         "sequelize": "^5.8.12",
-        "sequelize-cli": "^5.5.0",
-        "concurrently": "^4.1.1"
+        "sequelize-cli": "^5.5.0"
     }
 }
