@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Employee from './pages/Employee';
 import Reports from './pages/Reports';
 import Anlagen from './pages/Anlagen';
+import Profil from './pages/Profile';
 
 class App extends Component {
 
@@ -17,6 +18,7 @@ class App extends Component {
                     <Route exact path ='/' component={Home}/>
                     <Route path='/reports' component={Reports}/>
                     <Route path='/anlagen' component={Anlagen}/>
+                    <Route path='/profil' component={Profil}/>
                     {/* TODO: Durchgehend umbenennen auf mitarbeiter in URL*/}
                     <Route path ='/employee' component={Employee}/>
                 </Switch>

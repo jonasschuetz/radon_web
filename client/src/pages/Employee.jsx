@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 
 class Employee extends Component {
@@ -23,7 +24,8 @@ class Employee extends Component {
     render() {
     
         return(
-            <div>
+            <div className="App">
+                <Navbar/>
                 <ul>
                     {this.state.stays.map(function(stay, index) {
                         return(
