@@ -16,4 +16,8 @@ router.post('/create', function(req, res) {
         dosis: req.body.dosis
     }).then((result) => res.json(result))
 })
+
+router.get('/:id', function(req, res) {
+    models.employee.findOne({ where: { id: req.params.id } }).then((result) => res.json(result));
+});
 module.exports = router;

@@ -41,6 +41,13 @@
     background-color: #fdfdfd;
 }
 
+.radonContainer {
+    display: flex;
+    flex-direction: 'column';
+    justify-content: 'center';
+    align-items: 'center';
+}
+
 .EmpVorname {
     width: 306px;
     height: 28px;

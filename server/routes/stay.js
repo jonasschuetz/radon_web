@@ -17,4 +17,8 @@ router.post('/create', function(req, res) {
         roomId: req.body.roomId
     }).then((result) => res.json(result))
 })
+
+router.get('/employee/:id', function(req, res) {
+    models.stay.findAll({ where: { employeeId: req.params.id } }).then((result) => res.json(result));
+});
 module.exports = router;

@@ -20,7 +20,7 @@ class App extends Component {
                     <Route path='/anlagen' component={Anlagen}/>
                     <Route path='/profil' component={Profil}/>
                     {/* TODO: Durchgehend umbenennen auf mitarbeiter in URL*/}
-                    <Route path ='/employee' component={Employee}/>
+                    <Route path ='/employee/:id' component={Employee}/>
                 </Switch>
             </div>
         )

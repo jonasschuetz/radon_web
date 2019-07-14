@@ -41,25 +41,23 @@ class Home extends Component {
         return (
             <div >
                 <Navbar/>
-                <Container>
+                <Container className="radonContainer">
                 <h1>Mitarbeiter</h1>
-            
                 <div>
                     <ul>
                         {this.state.emps.map(function(emp, index){
                             return(
                                 <Row>
-                                    <Col>
+                                    
                                     <div key={index}>
                                    
-                                   <Link to = {'./employee'}>
+                                   <Link to = {`/employee/${emp.id}`}>
                                    <div className = "KleineRadonCard">
                                        <p className="EmpVornamen">{emp.firstName}</p> 
                                        <p className="EmpVornamen">{emp.lastName}</p>
                                    </div>
                                    </Link>
                                    </div>
-                                   </Col>
 
 
                                 </Row>
