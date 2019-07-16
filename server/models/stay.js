@@ -25,9 +25,17 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     stay.associate = function(models) {
-        models.stay.belongsTo(models.employee);
-    };
-
+        models.stay.belongsTo(models.room, {
+            as: 'room',
+            foreignKey: 'roomId'
+        })
+    }
+    stay.associate = function(models) {
+        models.stay.belongsTo(models.employee, {
+            as: 'employee',
+            foreignKey: 'employeeId'
+        })
+    }
 
     return stay;
 }
