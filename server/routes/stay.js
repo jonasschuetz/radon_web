@@ -14,7 +14,8 @@ router.post('/create', function(req, res) {
         dose: req.body.dose,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
-        roomId: req.body.roomId
+        roomId: req.body.roomId,
+        employeeId: req.body.employeeId
     }).then((result) => res.json(result))
 })
 
