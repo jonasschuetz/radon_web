@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-    pointer-events: none;
-}
+.App {}
 
 .App-header {
     background-color: #282c34;
@@ -21,10 +13,25 @@
 }
 
 .App-link {
-    color: #61dafb;
+    color: #000000;
+}
+
+ul {
+    padding: 0px;
+}
+
+li {
+    justify-content: center;
+    list-style-type: none;
+}
+
+.radonContainer {
+    display: flex;
+    justify-content: center;
 }
 
 .KleineRadonCard {
+    display: flex;
     width: 342px;
     height: 331px;
     border-radius: 15px;
@@ -33,19 +40,28 @@
 }
 
 .FlacheRadonCard {
-    align-self: right;
-    width: 692px;
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    margin-bottom: 8px;
+    width: 100%;
     height: 152px;
     border-radius: 15px;
     border: solid 0.5px #85898a;
     background-color: #fdfdfd;
 }
 
-.radonContainer {
-    display: flex;
-    flex-direction: 'column';
-    justify-content: 'center';
-    align-items: 'center';
+.FlacheRadonCard-Rechts {
+    text-align: right;
+    justify-content: flex-end;
+    position: relative;
+    right: 100px;
+    top: 30px;
+}
+
+.FlacheRadonCard-Links {
+    justify-content: flex-start;
 }
 
 .EmpVorname {
@@ -63,15 +79,44 @@
 
 .StayAnlagenamen {
     width: 663px;
-    height: 38px;
-    font-family: Roboto;
+    height: 32px;
+    font-family: 'Roboto';
     font-size: 32px;
     font-weight: bold;
+    letter-spacing: normal;
+    color: #0a1215;
+}
+
+.stayText {
+    width: 50%;
+    height: 20px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: normal;
+    color: #0a1215;
+}
+
+.dosisLabel {
+    width: 100px;
+    height: 24px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
     color: #0a1215;
+    text-align: center;
+}
+
+.dosisText {
+    font-family: 'Roboto';
+    font-size: 32px;
+    font-weight: bold;
+    color: #0a1215;
+    text-align: center;
 }
 
 .NavBarBackground {
@@ -79,8 +124,12 @@
     background-color: #fdfdfd;
 }
 
+.spacer {
+    margin-bottom: 40px;
+}
+
 .RadonText {
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 20px;
     font-weight: 300;
     font-style: normal;
@@ -90,11 +139,6 @@
     color: #0a1215;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+p {
+    margin-bottom: 6px !important;
 }
