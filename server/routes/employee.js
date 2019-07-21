@@ -20,4 +20,22 @@ router.post('/create', function(req, res) {
 router.get('/:id', function(req, res) {
     models.employee.findOne({ where: { id: req.params.id } }).then((result) => res.json(result));
 });
+
+router.get('/updateDosis/:id', function(req, res) {
+    var dosisSum = 0;
+    models.stay.findAll({
+        where: { employeeId: req.params.id }
+    }).then(stays => {
+            for (s in stays) {
+                dosisSum = dosisSum + stays[s].dose;
+            }
+            models.employee.update({
+                dosis: dosisSum
+            }, { where: { id: req.params.id } }).then((result) => res.json(result));
+        }
+
+    );
+
+});
+
 module.exports = router;

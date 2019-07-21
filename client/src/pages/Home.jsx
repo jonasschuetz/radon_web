@@ -55,6 +55,7 @@ class Home extends Component {
                                    <div className = "KleineRadonCard">
                                        <p className="EmpVornamen">{emp.firstName}</p> 
                                        <p className="EmpVornamen">{emp.lastName}</p>
+                                       <p className="EmpVornamen">{emp.dosis}</p>
                                    </div>
                                    </Link>
                                    </div>

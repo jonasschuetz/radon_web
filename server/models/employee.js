@@ -25,5 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         models.employee.hasMany(models.stay);
     };
 
+
+
     return employee;
 }

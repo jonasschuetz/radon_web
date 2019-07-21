@@ -25,6 +25,12 @@ li {
     list-style-type: none;
 }
 
+h2 {
+    font-family: "Roboto";
+    font-size: 32px;
+    font-weight: bold;
+}
+
 .radonContainer {
     display: flex;
     justify-content: center;
