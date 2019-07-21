@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import LineDiagram from '../components/LineDiagramm'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -121,8 +122,12 @@ class Employee extends Component {
                                 <p className="RadonText">Stunden: {hours}</p>
                                 <p className="RadonText">Anzahl Aufenthalte: {numOfStays}</p>
                                 <p className="RadonText">Ø Aufenthaltsdauer: {averageDuration}</p>
-
                             </div>
+                            <div className="spacer" />
+                            <div className="DiagramBox">
+                                <LineDiagram/>
+                            </div>
+                           
                             <div className="spacer" />
                             <h2>Aufenthalte</h2>
                             <ul>

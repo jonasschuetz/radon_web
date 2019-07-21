@@ -12,7 +12,7 @@ class Navbar extends Component {
                         <li><Link to={'/'} className="nav-link">Mitarbeiter</Link></li>
                         <li><Link to={'/profil'} className="nav-link">Profil</Link></li>
                         <li><Link to={'/anlagen'} className="nav-link">Anlagen</Link></li>
-                        <li><Link to={'reports'} className="nav-link">Reports</Link></li>
+                        <li><Link to={'/reports'} className="nav-link">Reports</Link></li>
                     </ul>
                 </nav>
             </div>
