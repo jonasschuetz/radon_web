@@ -62,13 +62,21 @@ class Employee extends Component {
             //Get Milliseconds for further calculation. 
             durationsMap[workingStays[s].id] = duration;
             //Get Strings for Card. 
-            durationsMapStrings[workingStays[s].id] = startDate.getHours() + ":" + startDate.getMinutes() + " - " + endDate.getHours() + ":" + endDate.getMinutes();
-        }
+            var startMinutes = this.addZero(startDate.getMinutes());
+            var endMinutes = this.addZero(endDate.getMinutes());
 
+            durationsMapStrings[workingStays[s].id] = startDate.getHours() + ":" + startMinutes + " - " + endDate.getHours() + ":" + endMinutes;
+        }
         this.setState({ stays: stays });
         this.setState({ durations: durationsMapStrings });
         this.getAllHours(durationsMap);
 
+    }
+    addZero = (minutes) =>{
+        if(minutes < 10){
+            minutes = '0'.concat(minutes);
+        }
+        return minutes;
     }
 
     getAllHours = (durations) => {

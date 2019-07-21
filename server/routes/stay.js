@@ -21,12 +21,11 @@ router.post('/create', function(req, res) {
         endTime: req.body.endTime,
         roomId: req.body.roomId,
         employeeId: req.body.employeeId
-    }).then(() => {
+    }).then((result) => {
         updateEmployeeDosis(req.body.employeeId);
+        res.json(result);
     })
 });
-
-
 
 router.get('/employee/:id', function(req, res) {
     models.stay.findAll({ where: { employeeId: req.params.id } }).then((result) => res.json(result));
