@@ -106,6 +106,7 @@ class Employee extends Component {
         var hours = this.state.allHours;
         var averageDuration = this.state.averageDuration;
         var numOfStays = this.state.numberOfStays;
+ 
 
         console.log();
         return (
@@ -114,22 +115,23 @@ class Employee extends Component {
                 <Container className="radonContainer">
                     <Row>
                         <Col>
-                            <div className="spacer" />
+                            <div className="spacerTop" />
                             <h1>{this.state.emp.firstName} {this.state.emp.lastName}</h1>
                             <p>ID: {this.props.match.params.id}</p>
-                            <div className="spacer" />
+                            <div className="spacerBetween" />
                             <div>
                                 <p className="RadonText">Stunden: {hours}</p>
                                 <p className="RadonText">Anzahl Aufenthalte: {numOfStays}</p>
                                 <p className="RadonText">Ø Aufenthaltsdauer: {averageDuration}</p>
                             </div>
-                            <div className="spacer" />
+                            <div className="spacerBetween" />
                             <div className="DiagramBox">
-                                <LineDiagram/>
+                                <LineDiagram id={this.props.match.params.id}/>
                             </div>
                            
-                            <div className="spacer" />
+                            <div className="spacerBetween" />
                             <h2>Aufenthalte</h2>
+                            <filterButton>Dosis</filterButton>
                             <ul>
                                 <li>
                                     {this.state.stays.map(function (stay, index) {

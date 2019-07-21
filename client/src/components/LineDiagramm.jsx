@@ -64,7 +64,7 @@ class LineDiagram extends Component {
             series: [{
                 name: 'series-1',
                 type:  'line',
-                data: [0.3,0.1,0.2]
+                data: []
             }] ,
            }
        }
@@ -80,7 +80,13 @@ class LineDiagram extends Component {
            const dates = [];
            var helper = 0;
            
-           fetch('/api/stay/employee/1')
+           //TOOD: Parameter übergeben, damit dies pro Mitarbeiter gemacht werden kann. 
+           var id = this.props.id;
+           console.log("id für line "+id);
+           var URL = '/api/stay/employee/';
+           URL = URL.concat(id);
+           console.log(URL);
+           fetch(URL)
            .then(res => res.json())
            .then(stays => {
                for(var s in stays){
