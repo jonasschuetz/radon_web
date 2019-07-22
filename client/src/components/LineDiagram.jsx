@@ -88,6 +88,7 @@ class LineDiagram extends Component {
            console.log(URL);
            fetch(URL)
            .then(res => res.json())
+           .then(stays => stays.sort((a,b) => new Date(a.startTime) - new Date(b.startTime)))
            .then(stays => {
                for(var s in stays){
                    var value = parseFloat(helper) + parseFloat(stays[s].dose);

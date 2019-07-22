@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import LineDiagram from '../components/LineDiagramm'
+import LineDiagram from '../components/LineDiagram'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -53,6 +53,7 @@ class Employee extends Component {
     }
 
     calulateDuration = (stays) => {
+        stays.sort((a,b) => new Date(b.startTime) - new Date(a.startTime));
         var workingStays = stays;
         var durationsMapStrings = {};
         var durationsMap = {};
@@ -68,7 +69,8 @@ class Employee extends Component {
 
             durationsMapStrings[workingStays[s].id] = startDate.getHours() + ":" + startMinutes + " - " + endDate.getHours() + ":" + endMinutes;
         }
-        this.setState({ stays: stays });
+       
+        this.setState({stays: stays});
         this.setState({ durations: durationsMapStrings });
         this.getAllHours(durationsMap);
 
@@ -131,7 +133,9 @@ class Employee extends Component {
                            
                             <div className="spacerBetween" />
                             <h2>Aufenthalte</h2>
-                            <filterButton>Dosis</filterButton>
+                            <div>
+                                <filterButton>Dosis</filterButton>
+                            </div>
                             <ul>
                                 <li>
                                     {this.state.stays.map(function (stay, index) {
@@ -164,7 +168,7 @@ class Employee extends Component {
                                 <Link to="/">
                                     <button variant="raised">
                                         Zurück
-                    </button>
+                                    </button>
                                 </Link>
                             </div>
                         </Col>

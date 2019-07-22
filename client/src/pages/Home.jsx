@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import ChartDiagram from '../components/ChartDiagram';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -26,6 +27,7 @@ class Home extends Component {
     getEmpList = () => {
         fetch('/api/employee')
         .then(res => res.json())
+        .then(emps => emps.sort((a,b) => b.dosis - a.dosis))
         .then(result => this.setState({'emps': result }))
     }  
  
@@ -41,35 +43,50 @@ class Home extends Component {
         return (
             <div >
                 <Navbar/>
-                <Container className="radonContainer">
+                <Container className="empContainer">
+                <Col>
+                <div className="spacerTop" />
                 <h1>Mitarbeiter</h1>
+                <div className="spacerBetween" />
                 <div>
                     <ul>
+                    <Row>
+                        
                         {this.state.emps.map(function(emp, index){
                             return(
-                                <Row>
-                                    
+                               
+                                 <li>
                                     <div key={index}>
                                    
-                                   <Link to = {`/employee/${emp.id}`}>
+                                   
                                    <div className = "KleineRadonCard">
+                                   <Link to = {`/employee/${emp.id}`}>
+                                       <div className="KleineRadonCard-links">
                                        <p className="EmpVornamen">{emp.firstName}</p> 
                                        <p className="EmpVornamen">{emp.lastName}</p>
-                                       <p className="EmpVornamen">{emp.dosis}</p>
+                                       </div>
+                                       <div className="KleineRadonCard-rechts">
+                                       <ChartDiagram dose={emp.dosis}/>
+                                       </div>
+                                       </Link>
                                    </div>
-                                   </Link>
+                                   
                                    </div>
+                                </li>   
 
-
-                                </Row>
+                                
                              
                                   
                                 
                             )
                         }
+                       
                         )}
+                    
+                         </Row>
                     </ul>
-                </div>
+                    </div>
+                    </Col>  
                 </Container>
                                 
             </div>

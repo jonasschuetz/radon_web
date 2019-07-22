@@ -35,14 +35,22 @@ Link {
 h2 {
     font-family: "Roboto";
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-filterbutton {
+.Filterbutton {
     width: 167px;
     height: 31px;
     border-radius: 15px !important;
     background-color: rgba(49, 90, 104, 0.08);
+}
+
+.empContainer {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: 'wrap';
+    flex-direction: 'row';
 }
 
 .radonContainer {
@@ -54,9 +62,24 @@ filterbutton {
     display: flex;
     width: 342px;
     height: 331px;
+    margin-left: 8px;
+    margin-bottom: 8px;
     border-radius: 15px;
     border: solid 0.5px #85898a;
     background-color: #fdfdfd;
+}
+
+.KleineRadonCard-rechts {
+    width: 350px;
+    text-align: right;
+    justify-content: flex-end;
+    position: relative;
+    left: 80px;
+    top: 30px;
+}
+
+.KleineRadonCard-links {
+    justify-content: flex-start;
 }
 
 .FlacheRadonCard {

@@ -9,6 +9,7 @@ router.get('/', function(req, res) {
     models.stay.findAll().then((result) => res.json(result))
 });
 
+//TODO: Im Bericht erklären, zusammen mit updateEmployeeDosis. 
 router.post('/create', function(req, res) {
     console.log(req.body);
     var empId = req.body.employeeId
