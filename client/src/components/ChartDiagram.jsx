@@ -25,11 +25,10 @@ class ChartDiagram extends Component {
             hollow: {
               margin: 0,
               size: '70%',
-              background: '#fff',
               position: 'front',
               dropShadow: {
-                enabled: true,
-                top: 3,
+                enabled: false,
+                top: -3,
                 left: 0,
                 blur: 4,
                 opacity: 0.24
@@ -39,13 +38,7 @@ class ChartDiagram extends Component {
               background: '#fff',
               strokeWidth: '67%',
               margin: 0, // margin is in pixels
-              dropShadow: {
-                enabled: true,
-                top: -3,
-                left: 0,
-                blur: 4,
-                opacity: 0.35
-              }
+              
             },
 
             dataLabels: {
@@ -68,12 +61,19 @@ class ChartDiagram extends Component {
           }
         },
         fill: {
-          colors: []
+          colors: [],
+          dropShadow: {
+            enabled: true,
+            top: -3,
+            left: 0,
+            blur: 4,
+            opacity: 0.35
+          }
         },
         stroke: {
           lineCap: 'round'
         },
-        labels: ['Percent'],
+        labels: ['msV / 365 Tage'],
       },
       series: [75],
     }

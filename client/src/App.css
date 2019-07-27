@@ -36,9 +36,7 @@ button {
 
 a {
     font-family: 'Roboto';
-    font-size: 20px;
-    font-weight: bold;
-    font-style: normal;
+    margin-bottom: 0px !important;
     text-decoration-style: none;
     color: #0a1215 !important;
 }
@@ -70,6 +68,8 @@ h2 {
     display: flex;
     width: 342px;
     height: 331px;
+    padding-left: 16px;
+    padding-top: 8px;
     margin-left: 8px;
     margin-bottom: 8px;
     border-radius: 15px;
@@ -82,8 +82,8 @@ h2 {
     text-align: right;
     justify-content: flex-end;
     position: relative;
-    left: 80px;
-    top: 30px;
+    left: 60px;
+    top: 10px;
 }
 
 .KleineRadonCard-links {
@@ -119,8 +119,8 @@ h2 {
     width: 306px;
     height: 28px;
     font-family: 'Roboto';
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 24px !important;
+    font-weight: bold !important;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;

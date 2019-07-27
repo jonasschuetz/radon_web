@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import ReactApexChart from 'react-apexcharts';
+import { throws } from 'assert';
 
 class LineDiagram extends Component {
    constructor(props) {
@@ -51,13 +52,6 @@ class LineDiagram extends Component {
               },
               xaxis: {
                 categories: [
-                  "01 Jan",
-                  "02 Jan",
-                  "03 Jan",
-                  "04 Jan",
-                  "05 Jan",
-                  "06 Jan",
-                  "07 Jan"
                 ]
               }
             },
@@ -95,7 +89,7 @@ class LineDiagram extends Component {
                    helper = value;
                    commulated.push(value.toFixed(2));
                    var date = new Date(stays[s].startTime);                 
-                   dates.push(date.getMonth());
+                   dates.push((date.getDate()).toString()+"."+(date.getMonth()+1).toString()+"."+(date.getFullYear()).toString());
                }
                console.log(dates);
                console.log(commulated);
@@ -105,24 +99,30 @@ class LineDiagram extends Component {
         
         updateCharts(newData, dates){
             var newSeriesState = [];
-            var newxAxisState = [];
+           
 
             var series = this.state.series;
             var xaxis = this.state.options.xaxis;
             console.log(xaxis); 
             const data = newData;   
-            const categories = dates;
             newSeriesState.push({data, name: "name", type: 'line' });
             
             //TODO: Correct xAxis. 
-            newxAxisState.push({categories, type: 'numeric'});
 
             console.log(newSeriesState);
             this.setState({
                 series: newSeriesState,
-                xaxis: newxAxisState
             })
-            console.log(newxAxisState);
+            this.setState({
+              options: {
+                ...this.state.options,
+                xaxis: {
+                  ...this.state.options.xaxis,
+                  categories: dates
+                }
+              }
+            })
+            console.log(dates);
             console.log(series)
         }
            
