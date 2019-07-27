@@ -14,15 +14,33 @@ var server = http.createServer(app);
 models.sequelize.sync({ force: true });
 
 setTimeout(function() {
+    var date1 = new Date('2019-07-17T03:24:00');
+    var date1end = new Date('2019-07-17T04:14:00');
+    var date2 = new Date('2019-07-19T09:21:00');
+    var date2end = new Date('2019-07-19T11:01:00');
     var today = new Date();
     var time = today.getTime();
     models.room.create({ name: 'dummy room', averageValue: 1000 });
     models.employee.create({ firstName: 'John', lastName: 'Doe', dosis: '0.1' });
-    models.employee.create({ firstName: 'Jane', lastName: 'Doe', dosis: '0.4' });
+    models.employee.create({ firstName: 'Jony', lastName: 'Doe', dosis: '3.4' });
+    models.employee.create({ firstName: 'Tony', lastName: 'Doe', dosis: '5.4' });
+    models.employee.create({ firstName: 'Close', lastName: 'Doe', dosis: '9.4' });
+    models.employee.create({ firstName: 'Over', lastName: 'Doe', dosis: '10.4' });
     models.stay.create({ startTime: time, endTime: time, dose: 0.12, employeeId: 1, roomId: 1 });
-    models.stay.create({ startTime: time, endTime: time, dose: 0.25, employeeId: 1, roomId: 1 });
-    models.stay.create({ startTime: time, endTime: time, dose: 0.03, employeeId: 2, roomId: 1 });
-    models.stay.create({ startTime: time, endTime: time, dose: 0.34, employeeId: 2, roomId: 1 });
+    models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.25, employeeId: 1, roomId: 1 });
+    models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.31, employeeId: 1, roomId: 1 });
+    models.stay.create({ startTime: time, endTime: time, dose: 0.19, employeeId: 2, roomId: 1 });
+    models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.23, employeeId: 2, roomId: 1 });
+    models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.50, employeeId: 2, roomId: 1 });
+    models.stay.create({ startTime: time, endTime: time, dose: 0.82, employeeId: 3, roomId: 1 });
+    models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.25, employeeId: 3, roomId: 1 });
+    models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.51, employeeId: 3, roomId: 1 });
+    models.stay.create({ startTime: time, endTime: time, dose: 0.52, employeeId: 4, roomId: 1 });
+    models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.95, employeeId: 4, roomId: 1 });
+    models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.11, employeeId: 4, roomId: 1 });
+    models.stay.create({ startTime: time, endTime: time, dose: 0.72, employeeId: 5, roomId: 1 });
+    models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.61, employeeId: 5, roomId: 1 });
+    models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.01, employeeId: 5, roomId: 1 });
 }, 2000);
 
 

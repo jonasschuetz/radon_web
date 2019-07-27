@@ -12,10 +12,6 @@
     color: white;
 }
 
-.App-link {
-    color: #000000;
-}
-
 ul {
     padding: 0px;
 }
@@ -25,24 +21,36 @@ li {
     list-style-type: none;
 }
 
-Link {
+button {
+    width: 192px;
+    height: 31px;
+    border-radius: 15px !important;
+    background-color: rgba(49, 90, 104, 0.2);
+    color: #315A68;
+    font-size: 18px !important;
+    border-style: none;
+    margin-bottom: 42px !important;
+    margin-top: 16px !important;
+    margin-right: 8px !important;
+}
+
+a {
     font-family: 'Roboto';
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     font-style: normal;
+    text-decoration-style: none;
+    color: #0a1215 !important;
+}
+
+a:active {
+    text-decoration-style: solid;
 }
 
 h2 {
     font-family: "Roboto";
     font-size: 32px;
     font-weight: 600;
-}
-
-.Filterbutton {
-    width: 167px;
-    height: 31px;
-    border-radius: 15px !important;
-    background-color: rgba(49, 90, 104, 0.08);
 }
 
 .empContainer {

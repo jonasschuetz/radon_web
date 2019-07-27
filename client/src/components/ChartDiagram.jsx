@@ -20,7 +20,7 @@ class ChartDiagram extends Component {
         },
         plotOptions: {
           radialBar: {
-            startAngle:0,
+            startAngle: 0,
             endAngle: 360,
             hollow: {
               margin: 0,
@@ -30,7 +30,6 @@ class ChartDiagram extends Component {
               dropShadow: {
                 enabled: true,
                 top: 3,
-                bottom:3,
                 left: 0,
                 blur: 4,
                 opacity: 0.24
@@ -41,8 +40,8 @@ class ChartDiagram extends Component {
               strokeWidth: '67%',
               margin: 0, // margin is in pixels
               dropShadow: {
-                enabled: false,
-                top: 3,
+                enabled: true,
+                top: -3,
                 left: 0,
                 blur: 4,
                 opacity: 0.35
@@ -69,31 +68,17 @@ class ChartDiagram extends Component {
           }
         },
         fill: {
-          type: 'gradient',
-          gradient: {
-            shade: 'dark',
-            type: 'horizontal',
-            shadeIntensity: 0.5,
-            colorStops: [
-              {
-                offset: 0,
-                color: "#FFF",
-                opacity: 1
-              },
-            ],
-            inverseColors: true,
-            opacityFrom: 1,
-            opacityTo: 1
-          }
+          colors: []
         },
         stroke: {
-          lineCap: 'flat'
+          lineCap: 'round'
         },
-        labels: ['msV / 365 Tage'],
+        labels: ['Percent'],
       },
-      series: [],
+      series: [75],
     }
   }
+
 	componentDidMount() {
           this.getDosis();
       }
@@ -101,24 +86,27 @@ class ChartDiagram extends Component {
       getDosis = () => {
           const newDose = [];
           var dose = this.props.dose;
-          var colorStops = this.state.options.fill.gradient.colorStops;
-          var color = "";
+          var colors = [];
 
           dose = dose * 10; //Prozent von 10 msV / 365 Jahr: Dosis / 10 * 100 => Dosis * 10
           newDose.push(parseFloat(dose));
           if(dose < 50){
-            color = "#55D479"
-            colorStops.push({offset: 0, color, opacity:1 })
+            colors = ['#55D479'];
           }
           else if(dose > 80){
-            color = "#D45555"
-            colorStops.push({offset: 0, color, opacity:1 })
+            colors = ['#D45555'];
           } 
           else {
-            color = "#DBB824"
-            colorStops.push({offset: 0, color, opacity:1 })
+            colors = ['#DBB824'];
           }
           this.setState({series: newDose});
+          this.setState({options: {
+            ...this.state.options,
+          fill: {
+            ...this.state.options.fill,
+            colors: colors
+          }
+        }});
 
       }
 

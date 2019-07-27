@@ -93,7 +93,7 @@ class LineDiagram extends Component {
                for(var s in stays){
                    var value = parseFloat(helper) + parseFloat(stays[s].dose);
                    helper = value;
-                   commulated.push(value);
+                   commulated.push(value.toFixed(2));
                    var date = new Date(stays[s].startTime);                 
                    dates.push(date.getMonth());
                }
