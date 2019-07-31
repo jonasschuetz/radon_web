@@ -5,6 +5,7 @@
 */
 import React, {Component} from 'react';
 import ReactApexChart from 'react-apexcharts';
+import Trend from "../components/Trend";
 
 class ChartDiagram extends Component {
       
@@ -116,6 +117,7 @@ class ChartDiagram extends Component {
 
       <div id="card">
         <div id="chart">
+          <Trend id={this.props.id} dose={this.props.dose}/>
           <ReactApexChart options={this.state.options} series={this.state.series} type="radialBar" height="300" width="300" />
         </div>
       </div>

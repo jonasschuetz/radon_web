@@ -7,6 +7,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import Trend from "../components/Trend";
+
 import "bootstrap/dist/css/bootstrap.css";
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
@@ -62,8 +64,8 @@ class Home extends Component {
                 <Row>
                   {this.state.ciritcalEmps.map(function(emp, index) {
                     return (
+                      <div key={index}>
                       <li>
-                        <div key={index}>
                           <div className="KleineRadonCard">
                             <Link to={`/employee/${emp.id}`}>
                               <div className="KleineRadonCard-links">
@@ -71,12 +73,13 @@ class Home extends Component {
                                 <p className="EmpVornamen">{emp.lastName}</p>
                               </div>
                               <div className="KleineRadonCard-rechts">
-                                <ChartDiagram dose={emp.dosis} />
+                                <ChartDiagram dose={emp.dosis} id={emp.id}/>
                               </div>
                             </Link>
                           </div>
-                        </div>
+                        
                       </li>
+                      </div>
                     );
                   })}
                 </Row>
@@ -90,8 +93,8 @@ class Home extends Component {
                 <Row>
                   {this.state.emps.map(function(emp, index) {
                     return (
+                      <div key={index}>
                       <li>
-                        <div key={index}>
                           <div className="KleineRadonCard">
                             <Link to={`/employee/${emp.id}`}>
                               <div className="KleineRadonCard-links">
@@ -99,12 +102,12 @@ class Home extends Component {
                                 <p className="EmpVornamen">{emp.lastName}</p>
                               </div>
                               <div className="KleineRadonCard-rechts">
-                                <ChartDiagram dose={emp.dosis} />
+                                <ChartDiagram dose={emp.dosis} id={emp.id}/>
                               </div>
                             </Link>
                           </div>
-                        </div>
                       </li>
+                      </div>
                     );
                   })}
                 </Row>
