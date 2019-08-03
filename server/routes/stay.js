@@ -30,24 +30,17 @@ router.get('/employee/:id', function(req, res) {
 
 
 const updateEmployeeDosis = empId => {
-    var dosisSum = 0.0;
-    models.employee.findOne({
-        where: { id: empId }
-    }).then(result => {
-        dosisSum = parseFloat(result.dosis);
-    }).then(
-        models.stay.findAll({
-            where: { employeeId: empId }
-        }).then(stays => {
-                for (s in stays) {
-                    dosisSum = dosisSum + parseFloat(stays[s].dose);
-                }
-                models.employee.update({
-                    dosis: dosisSum
-                }, { where: { id: empId } });
+    models.stay.findAll({
+        where: { employeeId: empId }
+    }).then(stays => {
+            for (s in stays) {
+                dosisSum = dosisSum + parseFloat(stays[s].dose);
             }
+            models.employee.update({
+                dosis: dosisSum
+            }, { where: { id: empId } });
+        }
 
-        )
     )
 };
 
