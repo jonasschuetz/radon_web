@@ -36,8 +36,8 @@ setTimeout(function() {
     models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.25, employeeId: 3, roomId: 1 });
     models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.51, employeeId: 3, roomId: 1 });
     models.stay.create({ startTime: time, endTime: time, dose: 0.52, employeeId: 4, roomId: 1 });
-    models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.95, employeeId: 4, roomId: 1 });
-    models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.11, employeeId: 4, roomId: 1 });
+    models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.05, employeeId: 4, roomId: 1 });
+    models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.01, employeeId: 4, roomId: 1 });
     models.stay.create({ startTime: time, endTime: time, dose: 0.72, employeeId: 5, roomId: 1 });
     models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.61, employeeId: 5, roomId: 1 });
     models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.01, employeeId: 5, roomId: 1 });

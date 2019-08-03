@@ -47,8 +47,7 @@ class Trend extends Component {
             }else{
                 factor = sum;
             }
-            console.log("factor is: "+factor);
-            console.log("dose is:" + this.props.dose);
+            
             if(factor === 0 ){
                 this.setState({trend: 0});
             }else if(factor <= 10){
@@ -56,10 +55,8 @@ class Trend extends Component {
             }else if(factor > 10) {
                 this.setState({trend: 2});
             }
-            console.log("state is:" + this.state.trend);
         }
         else{
-            console.log("Es geht ins else");
             this.setState({trend:trend_up});
         }
         

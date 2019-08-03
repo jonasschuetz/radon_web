@@ -11,11 +11,6 @@ router.get('/', function(req, res) {
 
 //TODO: Im Bericht erklären, zusammen mit updateEmployeeDosis. 
 router.post('/create', function(req, res) {
-    console.log(req.body);
-    var empId = req.body.employeeId
-    var URL = '/api/employee/updateDosis/';
-    URL = URL.concat(empId);
-    console.log(URL);
     models.stay.create({
         dose: req.body.dose,
         startTime: req.body.startTime,
@@ -32,20 +27,28 @@ router.get('/employee/:id', function(req, res) {
     models.stay.findAll({ where: { employeeId: req.params.id } }).then((result) => res.json(result));
 });
 
-const updateEmployeeDosis = id => {
-    var dosisSum = 0;
-    models.stay.findAll({
-        where: { employeeId: id }
-    }).then(stays => {
-            for (s in stays) {
-                dosisSum = dosisSum + stays[s].dose;
-            }
-            models.employee.update({
-                dosis: dosisSum
-            }, { where: { id: id } });
-        }
 
-    );
+
+const updateEmployeeDosis = empId => {
+    var dosisSum = 0.0;
+    models.employee.findOne({
+        where: { id: empId }
+    }).then(result => {
+        dosisSum = parseFloat(result.dosis);
+    }).then(
+        models.stay.findAll({
+            where: { employeeId: empId }
+        }).then(stays => {
+                for (s in stays) {
+                    dosisSum = dosisSum + parseFloat(stays[s].dose);
+                }
+                models.employee.update({
+                    dosis: dosisSum
+                }, { where: { id: empId } });
+            }
+
+        )
+    )
 };
 
 module.exports = router;
