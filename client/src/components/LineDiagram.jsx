@@ -8,7 +8,6 @@
 
 import React, {Component} from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { throws } from 'assert';
 
 class LineDiagram extends Component {
    constructor(props) {
@@ -74,12 +73,11 @@ class LineDiagram extends Component {
            const dates = [];
            var helper = 0;
            
-           //TOOD: Parameter übergeben, damit dies pro Mitarbeiter gemacht werden kann. 
+           
            var id = this.props.id;
-           console.log("id für line "+id);
            var URL = '/api/stay/employee/';
            URL = URL.concat(id);
-           console.log(URL);
+           
            fetch(URL)
            .then(res => res.json())
            .then(stays => stays.sort((a,b) => new Date(a.startTime) - new Date(b.startTime)))
@@ -91,25 +89,16 @@ class LineDiagram extends Component {
                    var date = new Date(stays[s].startTime);                 
                    dates.push((date.getDate()).toString()+"."+(date.getMonth()+1).toString()+"."+(date.getFullYear()).toString());
                }
-               console.log(dates);
-               console.log(commulated);
                this.updateCharts(commulated, dates);
                 })
            }
         
         updateCharts(newData, dates){
             var newSeriesState = [];
-           
-
-            var series = this.state.series;
-            var xaxis = this.state.options.xaxis;
-            console.log(xaxis); 
             const data = newData;   
             newSeriesState.push({data, name: "name", type: 'line' });
             
-            //TODO: Correct xAxis. 
 
-            console.log(newSeriesState);
             this.setState({
                 series: newSeriesState,
             })
@@ -122,8 +111,6 @@ class LineDiagram extends Component {
                 }
               }
             })
-            console.log(dates);
-            console.log(series)
         }
            
 

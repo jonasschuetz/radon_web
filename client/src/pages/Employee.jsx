@@ -116,7 +116,7 @@ class Employee extends Component {
         parseFloat(rooms[r].averageValue)
       );
     }
-    console.log(averageValueArray);
+    
     return averageValueArray;
   };
 
@@ -128,7 +128,6 @@ class Employee extends Component {
     var averageDuration = this.state.averageDuration;
     var numOfStays = this.state.numberOfStays;
 
-    console.log(rooms);
     return (
       <div className="App">
         <Navbar />
@@ -158,10 +157,10 @@ class Employee extends Component {
               <div className="spacerBetween" />
               <h2>Aufenthalte</h2>
               <div>
+                <button>Datum</button>
                 <button>Dosis</button>
-                <button>Dosis</button>
-                <button>Dosis</button>
-                <button>Dosis</button>
+                <button>Anlagen</button>
+                <button>Räume</button>
               </div>
               <ul>
                 <li>

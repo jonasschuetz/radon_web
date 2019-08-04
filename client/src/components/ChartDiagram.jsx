@@ -51,8 +51,7 @@ class ChartDiagram extends Component {
               },
               value: {
                 formatter: function (val) {
-                  console.log("Value "+val);
-                  return (parseFloat(val)/10);
+                  return (parseFloat(val)/10).toFixed(2);
                 },
                 offsetY: -20,
                 color: '#111',
@@ -87,12 +86,12 @@ class ChartDiagram extends Component {
 
       getDosis = () => {
           const newDose = [];
-          var dose = this.props.dose;
+          var dose = parseFloat(this.props.dose);
           var colors = [];
 
-          console.log("Dosis vor Berechnung "+this.props.dose);
+          
           dose = dose * 10; //Prozent von 10 msV / 365 Jahr: Dosis / 10 * 100 => Dosis * 10
-          newDose.push(parseFloat(dose));
+          newDose.push(dose);
           if(dose < 70){
             colors = ['#55D479'];
           }
