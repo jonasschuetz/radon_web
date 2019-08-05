@@ -56,8 +56,10 @@ class Employee extends Component {
     var durationsMap = {};
     for (var s in workingStays) {
       var startDate = new Date(workingStays[s].startTime);
+      //Zeitzonenkonversion für Heroku-Server
       startDate.setTime(startDate.getTime() + startDate.getTimezoneOffset()*60*1000);
       var endDate = new Date(workingStays[s].endTime);
+      //Zeitzonenkonversion für Heroku-Server
       endDate.setTime(endDate.getTime() + endDate.getTimezoneOffset()*60*1000);
       var duration = endDate.getTime() - startDate.getTime();
       //Get Milliseconds for further calculation.
@@ -185,7 +187,7 @@ class Employee extends Component {
 
                           <div className="FlacheRadonCard-Rechts">
                             <p className="dosisText">{stay.dose}</p>
-                            <p className="dosisLabel">Bq / m3</p>
+                            <p className="dosisLabel">mSv</p>
                           </div>
                         </div>
                       </div>
