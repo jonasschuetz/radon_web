@@ -98,6 +98,7 @@ class Employee extends Component {
     if (sum >= 36000) {
       sum = sum / 3600000;
     }
+    sum = sum.toFixed(2);
     this.setState({ allHours: sum });
     this.getAverageDuration(sum);
   };
@@ -125,7 +126,6 @@ class Employee extends Component {
   };
 
   render() {
-    var rooms = this.state.rooms;
     var roomAverages = this.getRoomAverageValue();
     var durations = this.state.durations;
     var hours = this.state.allHours;
