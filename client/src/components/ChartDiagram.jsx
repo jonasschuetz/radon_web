@@ -87,6 +87,7 @@ class ChartDiagram extends Component {
       getDosis = () => {
           const newDose = [];
           var dose = parseFloat(this.props.dose);
+          dose = dose.toFixed(1);
           var colors = [];
 
           
