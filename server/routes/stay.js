@@ -1,9 +1,10 @@
 var models = require('../models/index');
 var express = require('express');
 var router = express.Router();
-var http = require('http');
 var moment = require('moment');
-const { Op } = require('sequelize');
+const {
+    Op
+} = require('sequelize');
 
 router.use(express.json());
 
@@ -58,7 +59,11 @@ const updateEmployeeDosis = empId => {
             }
             models.employee.update({
                 dosis: dosisSum
-            }, { where: { id: empId } });
+            }, {
+                where: {
+                    id: empId
+                }
+            });
         }
 
     )

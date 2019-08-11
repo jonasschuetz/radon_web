@@ -74,7 +74,7 @@ class ChartDiagram extends Component {
         stroke: {
           lineCap: 'round'
         },
-        labels: ['msV / 365 Tage'],
+        labels: ['mSv / 365 Tage'],
       },
       series: [75],
     }

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import Nav from 'react-bootstrap/Nav';
@@ -6,9 +6,9 @@ import Nav from 'react-bootstrap/Nav';
 
 class Navbar extends Component {
     render() {
-       return(
+        return (
             <div>
-             <nav className="navbar navbar-expand-lg NavBarBackground">
+                <nav className="navbar navbar-expand-lg NavBarBackground">
                     <ul className="navbar-nav mr-auto">
                         <li><Link to={'/'} className="nav-link">Mitarbeiter</Link></li>
                         <li><Link to={'/profil'} className="nav-link">Profil</Link></li>
@@ -17,7 +17,7 @@ class Navbar extends Component {
                     </ul>
                 </nav>
             </div>
-       ) 
+        )
     }
 }
 export default Navbar;
