@@ -49,13 +49,14 @@ router.get('/employee/:id', function(req, res) {
 const updateEmployeeDosis = empId => {
     models.stay.findAll({
         where: {
-            employeeId: req.params.id,
+            employeeId: empId,
             startTime: {
                 [Op.gte]: moment().subtract(1, 'years').toDate()
             }
         }
         //Nach der Berechnung wird die neue Dosis gespeichert. 
     }).then(stays => {
+            var dosisSum = 0;
             for (s in stays) {
                 dosisSum = dosisSum + parseFloat(stays[s].dose);
             }
