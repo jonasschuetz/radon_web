@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 
 class Reports extends Component {
     render() {
         return(
-            <div className="radonContainer">
-                <Navbar/>
-                <h1>SUVA Reports</h1>
+            <div>
+            <Navbar/>
+            <Container className="radonContainer">
+                <Col>
+                <h1>Reports</h1>
                 <div>
                 <Link to="/">
                     <button variant="raised">
@@ -15,6 +19,8 @@ class Reports extends Component {
                     </button>
                 </Link>
                 </div>
+                </Col>
+            </Container>
             </div>
         )
     }
