@@ -1,6 +1,6 @@
 /*
-* Line Chart for the Employeer. 
-* Code and Inspiration from:
+* Linien Chart für die Arbeitgeber. 
+* Code Inspiration von:
 * https://apexcharts.com/react-chart-demos/line-charts/gradient and
 * https://apexcharts.com/react-chart-demos/line-charts/basic/
 * https://codepen.io/apexcharts/pen/RvqdPb
@@ -73,7 +73,7 @@ class LineDiagram extends Component {
   }
 
 
-
+//Es werden alle Stays iterativ aufkummuliert. Diese werden nachher im State "series" gespeichert. 
   getStays = () => {
     const commulated = [];
     const dates = [];
@@ -98,6 +98,7 @@ class LineDiagram extends Component {
       })
   }
 
+  //Updated die States für das Diagramm. 
   updateCharts(data, dates) {
     var newSeriesState = [];
     newSeriesState.push({ data, name: "name", type: 'line' });

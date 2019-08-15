@@ -5,9 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 
-
-
-//TODO: Check if Materialize is better? 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

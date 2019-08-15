@@ -11,8 +11,11 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+//Methode dropt alle bestehenden Tabellen und erstellt neue. 
 models.sequelize.sync({ force: true });
 
+
+//Methode wird bei jedem Build aufgerufen. Füllt die DB mit Dummy Daten.
 setTimeout(function() {
     var date1 = new Date('2019-07-17T03:24:00');
     var date1end = new Date('2019-07-17T04:14:00');

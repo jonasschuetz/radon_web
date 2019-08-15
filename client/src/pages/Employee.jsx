@@ -29,6 +29,7 @@ class Employee extends Component {
     this.getRoom();
   }
 
+  //Holt die Infos zu dem Mitarbeiter
   getEmp = () => {
     var id = this.props.match.params.id;
     fetch(`/api/employee/${id}`)
@@ -36,12 +37,14 @@ class Employee extends Component {
       .then(result => this.setState({ emp: result }));
   };
 
+  //Zieht die Rauminformationen für die Durchschnittliche Belastung
   getRoom = () => {
     fetch("/api/room")
       .then(res => res.json())
       .then(result => this.setState({ rooms: result }));
   };
 
+  //Zieht alle Stays für diesen Mitarbeiter
   getStays = () => {
     var id = this.props.match.params.id;
     fetch(`/api/stay/employee/${id}`)
@@ -49,6 +52,8 @@ class Employee extends Component {
       .then(results => this.calulateDuration(results));
   };
 
+  //Methode welche die Dauer für die einzelnen Aufenthalte als String formatiert. 
+  //Stays werden in den State stays geschrieben.
   calulateDuration = stays => {
     stays.sort((a, b) => new Date(b.startTime) - new Date(a.startTime));
     var workingStays = stays;
@@ -82,6 +87,8 @@ class Employee extends Component {
     this.setState({ durations: durationsMapStrings });
     this.getAllHours(durationsMap);
   };
+  //Methode, wenn Minuten kleiner als 10 sind. Dann wird eine 0 vorne angefügt. 
+  //z.B. wird von 9.8 Uhr zu 9.08 Uhr.
   addZero = minutes => {
     if (minutes < 10) {
       minutes = "0".concat(minutes);
@@ -89,6 +96,7 @@ class Employee extends Component {
     return minutes;
   };
 
+  //Summe aller Aufenthaltszeiten wird berechnet. 
   getAllHours = durations => {
     var sum = 0;
     for (var d in durations) {
@@ -103,6 +111,7 @@ class Employee extends Component {
     this.getAverageDuration(sum);
   };
 
+  //Durchschnittlicher Aufenthalt wird in dieser Methode berechnet. 
   getAverageDuration = sum => {
     var stays = this.state.stays;
     var averageDur = sum / stays.length;
@@ -110,7 +119,9 @@ class Employee extends Component {
     this.setState({ averageDuration: averageDur });
     this.setState({ numberOfStays: stays.length });
   };
-
+  
+  /*Für jeden Stay wird die durchschnittliche Belastung hinterlegt. Dazu wird ein
+  Array angelegt bei welchem die Durchschnittswerte nach room ID hinterlegt werden.*/
   getRoomAverageValue = () => {
     var rooms = this.state.rooms;
     var averageValueArray = [0];

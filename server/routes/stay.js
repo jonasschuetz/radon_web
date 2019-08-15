@@ -7,7 +7,7 @@ const {
 } = require('sequelize');
 
 router.use(express.json());
-
+//HTTP Request Handling für die Route /api/stay
 router.get('/', function(req, res) {
     models.stay.findAll({
         where: {
@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
     }).then((result) => res.json(result))
 });
 
-//TODO: Im Bericht erklären, zusammen mit updateEmployeeDosis. 
+//Wird ein neuer Stay angelegt wird auch die MitarbeiterDosis neu berechnet. 
 router.post('/create', function(req, res) {
     models.stay.create({
         dose: req.body.dose,
@@ -32,6 +32,7 @@ router.post('/create', function(req, res) {
     })
 });
 
+//Es werden nur Aufenthalte für den Mitarbeiter mit der entsprechenden ID zurückgegeben. 
 router.get('/employee/:id', function(req, res) {
     models.stay.findAll({
         where: {
@@ -44,7 +45,7 @@ router.get('/employee/:id', function(req, res) {
 });
 
 
-
+//Berechnet die neue Dosis des Mitarbeiters. 
 const updateEmployeeDosis = empId => {
     models.stay.findAll({
         where: {
@@ -53,6 +54,7 @@ const updateEmployeeDosis = empId => {
                 [Op.gte]: moment().subtract(1, 'years').toDate()
             }
         }
+        //Nach der Berechnung wird die neue Dosis gespeichert. 
     }).then(stays => {
             for (s in stays) {
                 dosisSum = dosisSum + parseFloat(stays[s].dose);

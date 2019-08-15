@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 class Profile extends Component {
     render() {
         return(
-            <div className="App">
+            <div className="radonContainer">
                 <Navbar/>
                 <h1>Vorname Nachname</h1>
                 <div>

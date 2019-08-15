@@ -1,7 +1,8 @@
 /*
-*
-* 
-*
+* Donut Chart für die Mitarbeiter Cards. 
+* Code Inspiration von:
+* https://apexcharts.com/react-chart-demos/radialbar-charts/basic/ und
+* https://apexcharts.com/react-chart-demos/radialbar-charts/gradient/ 
 */
 import React, {Component} from 'react';
 import ReactApexChart from 'react-apexcharts';
@@ -84,6 +85,8 @@ class ChartDiagram extends Component {
           this.getDosis();
       }
 
+      /*Dosis wird vom HTTP Server geholt. Die Farbe des Donut Charts wird anschliessend über die 
+      über Prozentzahl definiert*/
       getDosis = () => {
           const newDose = [];
           var dose = parseFloat(this.props.dose);

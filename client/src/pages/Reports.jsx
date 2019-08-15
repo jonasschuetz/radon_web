@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 class Reports extends Component {
     render() {
         return(
-            <div className="App">
+            <div className="radonContainer">
                 <Navbar/>
                 <h1>SUVA Reports</h1>
                 <div>

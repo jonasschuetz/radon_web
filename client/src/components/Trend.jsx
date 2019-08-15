@@ -62,6 +62,8 @@ class Trend extends Component {
         } 
     }
 
+    /*Ein png wird gemäss dem State "trend" gesetzt. "trend" wird gemäss der Methode
+    calculateTrend() berechnet.*/
     render() {
         var trend = this.state.trend;
 

@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join('client/build')));
 
+//Routen für die API URLs. 
 app.use('/api/', routes);
 app.use('/api/stay', stayRouter);
 app.use('/api/room', roomRouter);

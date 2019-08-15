@@ -7,8 +7,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import Trend from "../components/Trend";
-
 import "bootstrap/dist/css/bootstrap.css";
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
@@ -31,6 +29,9 @@ class Home extends Component {
       .then(result => this.ciritcalEmps(result));
   };
 
+  /*Methode erstellt zwei Arrays:
+  Eine mit Mitarbeiter mit kritischer Dosis und eine für die anderen Mitarbeiter. 
+  */
   ciritcalEmps(employees) {
     var okEmpsArray = [];
     var cirticalEmpsArray = [];

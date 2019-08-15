@@ -4,10 +4,12 @@ var router = express.Router();
 
 router.use(express.json());
 
+//HTTP Request Handling für die Route /api/employee
 router.get('/', function(req, res) {
     models.employee.findAll().then((result) => res.json(result))
 });
 
+//Methode um einen neuen Mitarbeiter zu erstellen. 
 router.post('/create', function(req, res) {
     console.log(req.body);
     models.employee.create({
@@ -17,25 +19,10 @@ router.post('/create', function(req, res) {
     }).then((result) => res.json(result))
 })
 
+//Employee mit der entsprechenden ID wird zurückgegeben. 
 router.get('/:id', function(req, res) {
     models.employee.findOne({ where: { id: req.params.id } }).then((result) => res.json(result));
 });
 
-router.get('/updateDosis/:id', function(req, res) {
-    var dosisSum = 0;
-    models.stay.findAll({
-        where: { employeeId: req.params.id }
-    }).then(stays => {
-            for (s in stays) {
-                dosisSum = dosisSum + stays[s].dose;
-            }
-            models.employee.update({
-                dosis: dosisSum
-            }, { where: { id: req.params.id } }).then((result) => res.json(result));
-        }
-
-    );
-
-});
 
 module.exports = router;

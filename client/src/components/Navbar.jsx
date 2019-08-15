@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import Nav from 'react-bootstrap/Nav';
 
+//Navbar für die Web Applikation. 
 
 class Navbar extends Component {
     render() {
