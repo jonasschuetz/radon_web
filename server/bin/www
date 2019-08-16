@@ -25,11 +25,11 @@ setTimeout(function() {
     var time = today.getTime();
     models.room.create({ name: 'Vorraum', averageValue: 1000 });
     models.room.create({ name: 'Reservoir', averageValue: 1200 });
-    models.employee.create({ firstName: 'Fritz', lastName: 'Meier', dosis: '0.1' });
-    models.employee.create({ firstName: 'Hans', lastName: 'Müller', dosis: '3.4' });
-    models.employee.create({ firstName: 'Vreni', lastName: 'Kaufmann', dosis: '5.4' });
+    models.employee.create({ firstName: 'Fritz', lastName: 'Meier', dosis: '3.6' });
+    models.employee.create({ firstName: 'Hans', lastName: 'Müller', dosis: '0.2' });
+    models.employee.create({ firstName: 'Vreni', lastName: 'Kaufmann', dosis: '6.2' });
     models.employee.create({ firstName: 'Urs', lastName: 'Holzner', dosis: '9.4' });
-    models.employee.create({ firstName: 'Anna', lastName: 'Graf', dosis: '10.4' });
+    models.employee.create({ firstName: 'Anna', lastName: 'Graf', dosis: '11.12' });
     models.stay.create({ startTime: time, endTime: time, dose: 0.12, employeeId: 1, roomId: 1 });
     models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 0.01, employeeId: 1, roomId: 1 });
     models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 0.09, employeeId: 1, roomId: 1 });
@@ -39,7 +39,6 @@ setTimeout(function() {
     models.stay.create({ startTime: time, endTime: time, dose: 0.82, employeeId: 3, roomId: 1 });
     models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 2.5, employeeId: 3, roomId: 1 });
     models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 2.9, employeeId: 3, roomId: 1 });
-    models.stay.create({ startTime: time, endTime: time, dose: 0.52, employeeId: 4, roomId: 1 });
     models.stay.create({ startTime: date1.getTime(), endTime: date1end.getTime(), dose: 4.3, employeeId: 4, roomId: 1 });
     models.stay.create({ startTime: date2.getTime(), endTime: date2end.getTime(), dose: 5.1, employeeId: 4, roomId: 1 });
     models.stay.create({ startTime: time, endTime: time, dose: 0.72, employeeId: 5, roomId: 1 });
