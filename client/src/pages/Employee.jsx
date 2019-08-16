@@ -62,15 +62,7 @@ class Employee extends Component {
     var durationsMap = {};
     for (var s in workingStays) {
       var startDate = new Date(workingStays[s].startTime);
-      //Zeitzonenkonversion für Heroku-Server
-      startDate.setTime(
-        startDate.getTime() + startDate.getTimezoneOffset() * 60 * 1000
-      );
       var endDate = new Date(workingStays[s].endTime);
-      //Zeitzonenkonversion für Heroku-Server
-      endDate.setTime(
-        endDate.getTime() + endDate.getTimezoneOffset() * 60 * 1000
-      );
       var duration = endDate.getTime() - startDate.getTime();
       //Get Milliseconds for further calculation.
       durationsMap[workingStays[s].id] = duration;
