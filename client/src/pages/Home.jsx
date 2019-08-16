@@ -66,7 +66,7 @@ class Home extends Component {
                   {this.state.ciritcalEmps.map(function(emp, index) {
                     return (
                       <div key={index}>
-                      <li>
+                        <li>
                           <div className="KleineRadonCard">
                             <Link to={`/employee/${emp.id}`}>
                               <div className="KleineRadonCard-links">
@@ -74,12 +74,11 @@ class Home extends Component {
                                 <p className="EmpVornamen">{emp.lastName}</p>
                               </div>
                               <div className="KleineRadonCard-rechts">
-                                <ChartDiagram dose={emp.dosis} id={emp.id}/>
+                                <ChartDiagram dose={emp.dosis} id={emp.id} />
                               </div>
                             </Link>
                           </div>
-                        
-                      </li>
+                        </li>
                       </div>
                     );
                   })}
@@ -95,7 +94,7 @@ class Home extends Component {
                   {this.state.emps.map(function(emp, index) {
                     return (
                       <div key={index}>
-                      <li>
+                        <li>
                           <div className="KleineRadonCard">
                             <Link to={`/employee/${emp.id}`}>
                               <div className="KleineRadonCard-links">
@@ -103,11 +102,11 @@ class Home extends Component {
                                 <p className="EmpVornamen">{emp.lastName}</p>
                               </div>
                               <div className="KleineRadonCard-rechts">
-                                <ChartDiagram dose={emp.dosis} id={emp.id}/>
+                                <ChartDiagram dose={emp.dosis} id={emp.id} />
                               </div>
                             </Link>
                           </div>
-                      </li>
+                        </li>
                       </div>
                     );
                   })}

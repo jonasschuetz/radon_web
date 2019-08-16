@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:regular,bold&display=swap');
 .App {}
 
 .App-header {
@@ -52,10 +52,29 @@ a:active {
     text-decoration-style: solid;
 }
 
+h1 {
+    font-family: 'Roboto' !important;
+    font-size: 40px !important;
+    font-weight: bold !important;
+    letter-spacing: normal !important;
+    color: #0a1215 !important;
+}
+
 h2 {
-    font-family: "Roboto";
-    font-size: 32px;
-    font-weight: 600;
+    font-family: 'Roboto' !important;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    letter-spacing: normal !important;
+    color: #0a1215 !important;
+    padding-bottom: 16px;
+}
+
+.dateFormat {
+    font-family: 'Roboto' !important;
+    font-size: 28px !important;
+    font-weight: bold !important;
+    letter-spacing: normal !important;
+    color: #0a1215 !important;
 }
 
 .empContainer {

@@ -19,7 +19,8 @@ class Employee extends Component {
       durations: {},
       allHours: 0,
       averageDuration: 0,
-      numberOfStays: 0
+      numberOfStays: 0,
+      dates: []
     };
   }
 
@@ -52,7 +53,7 @@ class Employee extends Component {
       .then(results => this.calulateDuration(results));
   };
 
-  //Methode welche die Dauer für die einzelnen Aufenthalte als String formatiert. 
+  //Methode welche die Dauer für die einzelnen Aufenthalte als String formatiert.
   //Stays werden in den State stays geschrieben.
   calulateDuration = stays => {
     stays.sort((a, b) => new Date(b.startTime) - new Date(a.startTime));
@@ -62,10 +63,14 @@ class Employee extends Component {
     for (var s in workingStays) {
       var startDate = new Date(workingStays[s].startTime);
       //Zeitzonenkonversion für Heroku-Server
-      startDate.setTime(startDate.getTime() + startDate.getTimezoneOffset()*60*1000);
+      startDate.setTime(
+        startDate.getTime() + startDate.getTimezoneOffset() * 60 * 1000
+      );
       var endDate = new Date(workingStays[s].endTime);
       //Zeitzonenkonversion für Heroku-Server
-      endDate.setTime(endDate.getTime() + endDate.getTimezoneOffset()*60*1000);
+      endDate.setTime(
+        endDate.getTime() + endDate.getTimezoneOffset() * 60 * 1000
+      );
       var duration = endDate.getTime() - startDate.getTime();
       //Get Milliseconds for further calculation.
       durationsMap[workingStays[s].id] = duration;
@@ -86,8 +91,9 @@ class Employee extends Component {
     this.setState({ stays: stays });
     this.setState({ durations: durationsMapStrings });
     this.getAllHours(durationsMap);
+    this.getDates(stays);
   };
-  //Methode, wenn Minuten kleiner als 10 sind. Dann wird eine 0 vorne angefügt. 
+  //Methode, wenn Minuten kleiner als 10 sind. Dann wird eine 0 vorne angefügt.
   //z.B. wird von 9.8 Uhr zu 9.08 Uhr.
   addZero = minutes => {
     if (minutes < 10) {
@@ -96,7 +102,7 @@ class Employee extends Component {
     return minutes;
   };
 
-  //Summe aller Aufenthaltszeiten wird berechnet. 
+  //Summe aller Aufenthaltszeiten wird berechnet.
   getAllHours = durations => {
     var sum = 0;
     for (var d in durations) {
@@ -111,7 +117,7 @@ class Employee extends Component {
     this.getAverageDuration(sum);
   };
 
-  //Durchschnittlicher Aufenthalt wird in dieser Methode berechnet. 
+  //Durchschnittlicher Aufenthalt wird in dieser Methode berechnet.
   getAverageDuration = sum => {
     var stays = this.state.stays;
     var averageDur = sum / stays.length;
@@ -119,7 +125,19 @@ class Employee extends Component {
     this.setState({ averageDuration: averageDur });
     this.setState({ numberOfStays: stays.length });
   };
-  
+
+  //Formatiertes Datum für jeden Aufenthalt
+  getDates = stays => {
+    var formattedDates = [];
+    for (var s in stays) {
+      var date = new Date(stays[s].startTime);
+      var dateString =
+        date.getDate() + "." + date.getMonth() + "." + date.getFullYear();
+      formattedDates[stays[s].id] = dateString;
+    }
+    this.setState({ dates: formattedDates });
+  };
+
   /*Für jeden Stay wird die durchschnittliche Belastung hinterlegt. Dazu wird ein
   Array angelegt bei welchem die Durchschnittswerte nach room ID hinterlegt werden.*/
   getRoomAverageValue = () => {
@@ -132,7 +150,7 @@ class Employee extends Component {
         parseFloat(rooms[r].averageValue)
       );
     }
-    
+
     return averageValueArray;
   };
 
@@ -142,6 +160,7 @@ class Employee extends Component {
     var hours = this.state.allHours;
     var averageDuration = this.state.averageDuration;
     var numOfStays = this.state.numberOfStays;
+    var dates = this.state.dates;
 
     return (
       <div className="App">
@@ -182,6 +201,7 @@ class Employee extends Component {
                   {this.state.stays.map(function(stay, index) {
                     return (
                       <div key={index}>
+                        <p className="dateFormat">{dates[stay.id]}</p>
                         <div className="FlacheRadonCard">
                           <div className="FlacheRadonCard-Links">
                             <p className="StayAnlagenamen">
@@ -195,7 +215,6 @@ class Employee extends Component {
                               Ø Belastung: {roomAverages[stay.roomId]} Bq / m3
                             </p>
                           </div>
-
                           <div className="FlacheRadonCard-Rechts">
                             <p className="dosisText">{stay.dose}</p>
                             <p className="dosisLabel">mSv</p>
@@ -205,7 +224,7 @@ class Employee extends Component {
                     );
                   })}
                 </li>
-              </ul> 
+              </ul>
               <div>
                 <Link to="/">
                   <button>Zurück</button>
